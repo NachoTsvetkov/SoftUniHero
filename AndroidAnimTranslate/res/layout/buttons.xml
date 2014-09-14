@@ -4,6 +4,7 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="horizontal" >
+<<<<<<< HEAD
     <Button
             android:id="@+id/c"
             android:layout_width="50dp"
@@ -30,6 +31,26 @@
             android:shadowRadius="5"/>
     <Button
             android:id="@+id/php"
+=======
+    <Button android:id="@+id/c"
+            android:background="@android:color/transparent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"/>
+    
+    <Button android:id="@+id/java"
+            android:text="J"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"/>
+    <Button android:id="@+id/html"
+            android:text="H5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"/>
+    <Button android:id="@+id/php"
+            android:text="PHP"
+>>>>>>> origin/master
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom"
