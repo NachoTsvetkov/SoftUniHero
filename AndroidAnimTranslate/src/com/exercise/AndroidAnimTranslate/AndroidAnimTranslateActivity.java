@@ -1,5 +1,7 @@
 package com.exercise.AndroidAnimTranslate;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,12 +22,15 @@ public class AndroidAnimTranslateActivity extends Activity {
         Button btnStartGame = (Button)findViewById(R.id.btnStartGame);
         final Animation animationFalling = AnimationUtils.loadAnimation(this, R.anim.falling);
         final AndroidAnimTranslateActivity app = this;
+        final ArrayList<ImageView> images = new ArrayList<ImageView>();
         
         btnStartGame.setOnClickListener(new Button.OnClickListener(){
 		    @Override
 		    public void onClick(View arg0) {
 		    	ImageView fi = new ImageView(app);
 		    	fi.setImageResource(R.drawable.ic_launcher);
+		    	
+		    	images.add(fi);
 		    	
 		    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.rlLine1);
 		    	
@@ -36,8 +41,10 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	
 		    	lp.addRule(RelativeLayout.ALIGN_LEFT);
 		    	
-	    		rl.addView(fi, lp);
-		    	fi.startAnimation(animationFalling);
+		    	rl.addView(images.get(images.size()-1), lp);
+	    		for (ImageView imageView : images) {
+	    			imageView.startAnimation(animationFalling);
+				}
 		    }
         });
     }
