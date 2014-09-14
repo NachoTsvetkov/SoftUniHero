@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, AndroidAnimTranslateActivity!</string>
     <string name="app_name">AndroidAnimTranslate</string>
+    <string name="onStartGameClick"></string>
 
 </resources>
