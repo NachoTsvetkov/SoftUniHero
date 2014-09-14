@@ -15,19 +15,21 @@ import android.widget.RelativeLayout;
 
 public class AndroidAnimTranslateActivity extends Activity {
 	public static int counter = 0;
-	public static int iterations = 10;
+	public static int iterations = 50;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        final Animation animationFalling = AnimationUtils.loadAnimation(this, R.anim.falling);
+
         final Animation animationLine1 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine2 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine3 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine4 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final AndroidAnimTranslateActivity app = this;
+        
+        
 
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.llMain);
         mainLayout.setOnClickListener(new Button.OnClickListener(){
@@ -43,39 +45,19 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    public void onClick(View arg0) {
 		    	counter = 0;
 		    	
-		    	RelativeLayout.LayoutParams layoutParameters = new RelativeLayout.LayoutParams(
-	    			LayoutParams.WRAP_CONTENT,
-	    		    LayoutParams.WRAP_CONTENT
-		    	);
+		    	RelativeLayout.LayoutParams layoutParameters = setLayoutParams();
 		    	
-		    	layoutParameters.setMargins(0, -150, 0, 0);
-		    	layoutParameters.addRule(RelativeLayout.ALIGN_LEFT);
-		    	layoutParameters.addRule(RelativeLayout.ALIGN_LEFT);
+		    	final ImageView img1 = setImageView(animationLine1,
+						layoutParameters, R.id.rlLine1, R.drawable.ic_launcher);
 		    	
+		    	final ImageView img2 = setImageView(animationLine2,
+						layoutParameters, R.id.rlLine2, R.drawable.ic_launcher);
 		    	
-		    	final ImageView fi = new ImageView(app);
-		    	fi.setImageResource(R.drawable.ic_launcher);
-		    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.rlLine1);
-		    	rl.addView(fi, layoutParameters);
-		    	fi.startAnimation(animationFalling);
+		    	final ImageView img3 = setImageView(animationLine3,
+						layoutParameters, R.id.rlLine3, R.drawable.ic_launcher);
 		    	
-		    	final ImageView fi2 = new ImageView(app);
-		    	fi2.setImageResource(R.drawable.ic_launcher);
-		    	RelativeLayout rl2 = (RelativeLayout) findViewById(R.id.rlLine2);
-		    	rl2.addView(fi2, layoutParameters);
-		    	fi2.startAnimation(animationLine1);
-		    	
-		    	final ImageView fi3 = new ImageView(app);
-		    	fi3.setImageResource(R.drawable.ic_launcher);
-		    	RelativeLayout rl3 = (RelativeLayout) findViewById(R.id.rlLine3);
-		    	rl3.addView(fi3, layoutParameters);
-		    	fi3.startAnimation(animationLine1);
-		    	
-		    	final ImageView fi4 = new ImageView(app);
-		    	fi4.setImageResource(R.drawable.ic_launcher);
-		    	RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.rlLine2);
-		    	rl4.addView(fi4, layoutParameters);
-		    	fi4.startAnimation(animationLine4);
+		    	final ImageView img4 = setImageView(animationLine4,
+						layoutParameters, R.id.rlLine4, R.drawable.ic_launcher);
 		    	
 		    	final Random rnd = new Random();
 		    	int rnd1 = (int)(rnd.nextFloat()*1000);
@@ -83,16 +65,30 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	int rnd3 = (int)(rnd.nextFloat()*1000);
 		    	int rnd4 = (int)(rnd.nextFloat()*1000);
 		    	
-		    	animationLine1.setStartOffset(rnd1);
-		    	animationLine2.setStartOffset(rnd2);
-		    	animationLine3.setStartOffset(rnd3);
-		    	animationLine4.setStartOffset(rnd4);
+		    	animationLine1.setStartOffset(rnd1+3);
+		    	animationLine2.setStartOffset(rnd2+2);
+		    	animationLine3.setStartOffset(rnd3+4);
+		    	animationLine4.setStartOffset(rnd4+1);
 		    	
-		    	animationFalling.setStartOffset(rnd1+3);
-		    	animationLine1.setStartOffset(rnd2+3);
-		    	animationLine2.setStartOffset(rnd3+3);
+		    	Animation.AnimationListener listener1 = getAnimationListener(
+						animationLine1, img1, rnd, animationLine1);
+		    	Animation.AnimationListener listener2 = getAnimationListener(
+						animationLine2, img2, rnd, animationLine2);
+		    	Animation.AnimationListener listener3 = getAnimationListener(
+						animationLine3, img3, rnd, animationLine3);
+		    	Animation.AnimationListener listener4 = getAnimationListener(
+						animationLine4, img4, rnd, animationLine4);
 		    	
-		    	animationFalling.setAnimationListener(new Animation.AnimationListener(){
+		    	animationLine1.setAnimationListener(listener1);
+		    	animationLine2.setAnimationListener(listener2);
+		    	animationLine3.setAnimationListener(listener3);
+		    	animationLine4.setAnimationListener(listener4);
+		    }
+
+			private Animation.AnimationListener getAnimationListener(
+					final Animation animationLine1, final ImageView firstImage,
+					final Random rnd, final Animation anim) {
+				Animation.AnimationListener listener = new Animation.AnimationListener(){
 		    	    @Override
 		    	    public void onAnimationStart(Animation arg0) {
 		    	    }           
@@ -101,67 +97,40 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	    }           
 		    	    @Override
 		    	    public void onAnimationEnd(Animation arg0) {
+		    	    	counter++;
 		    	    	if(counter < iterations) {
-			    	    	counter++;
 					    	int rnd1 = (int)(rnd.nextFloat()*1000);
 					    	animationLine1.setStartOffset(rnd1+10);
-					    	fi.startAnimation(animationLine1);
+					    	firstImage.startAnimation(anim);
 		    	    	}
 		    	    }
-		    	});
+		    	};
 		    	
+				return listener;
+			}
+
+			private ImageView setImageView(final Animation animationFalling,
+					RelativeLayout.LayoutParams layoutParameters, int rlLine,
+					int icon) {
+				final ImageView vi = new ImageView(app);
+		    	vi.setImageResource(icon);
+		    	RelativeLayout rl = (RelativeLayout) findViewById(rlLine);
+		    	rl.addView(vi, layoutParameters);
+		    	vi.startAnimation(animationFalling);
+				return vi;
+			}
+
+			private RelativeLayout.LayoutParams setLayoutParams() {
+				RelativeLayout.LayoutParams layoutParameters = new RelativeLayout.LayoutParams(
+	    			LayoutParams.WRAP_CONTENT,
+	    		    LayoutParams.WRAP_CONTENT
+		    	);
 		    	
-		    	animationLine1.setAnimationListener(new Animation.AnimationListener(){
-		    	    @Override
-		    	    public void onAnimationStart(Animation arg0) {
-		    	    }           
-		    	    @Override
-		    	    public void onAnimationRepeat(Animation arg0) {
-		    	    }           
-		    	    @Override
-		    	    public void onAnimationEnd(Animation arg0) {
-		    	    	if(counter < iterations) {
-					    	int rnd2 = (int)(rnd.nextFloat()*1000);
-					    	animationLine2.setStartOffset(rnd2+10);
-					    	fi2.startAnimation(animationLine2);
-		    	    	}
-		    	    }
-		    	});
-		    	
-		    	animationLine2.setAnimationListener(new Animation.AnimationListener(){
-		    	    @Override
-		    	    public void onAnimationStart(Animation arg0) {
-		    	    }           
-		    	    @Override
-		    	    public void onAnimationRepeat(Animation arg0) {
-		    	    }           
-		    	    @Override
-		    	    public void onAnimationEnd(Animation arg0) {
-		    	    	if(counter < iterations) {
-					    	int rnd2 = (int)(rnd.nextFloat()*1000);
-					    	animationLine3.setStartOffset(rnd2+10);
-					    	fi3.startAnimation(animationLine3);
-		    	    	}
-		    	    }
-		    	});
-		    	
-		    	animationLine4.setAnimationListener(new Animation.AnimationListener(){
-		    	    @Override
-		    	    public void onAnimationStart(Animation arg0) {
-		    	    }           
-		    	    @Override
-		    	    public void onAnimationRepeat(Animation arg0) {
-		    	    }           
-		    	    @Override
-		    	    public void onAnimationEnd(Animation arg0) {
-		    	    	if(counter < iterations) {
-					    	int rnd4 = (int)(rnd.nextFloat()*1000);
-					    	animationLine4.setStartOffset(rnd4+10);
-					    	fi4.startAnimation(animationLine4);
-		    	    	}
-		    	    }
-		    	});
-		    }
+		    	layoutParameters.setMargins(0, -150, 0, 0);
+		    	layoutParameters.addRule(RelativeLayout.ALIGN_LEFT);
+		    	layoutParameters.addRule(RelativeLayout.ALIGN_LEFT);
+				return layoutParameters;
+			}
         });
     }
 }
