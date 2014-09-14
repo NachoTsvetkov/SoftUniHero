@@ -4,26 +4,11 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello" />
-    <Button
-        android:id="@+id/starttranslate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Translate"/>
 	<LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:orientation="vertical" 
-	    android:gravity="bottom">
-
-	    <ImageView
-	        android:id="@+id/floatingimage"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:src="@drawable/ic_launcher" />
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="bottom"
+	    android:orientation="vertical" >
 	    
 	</LinearLayout>    
 
