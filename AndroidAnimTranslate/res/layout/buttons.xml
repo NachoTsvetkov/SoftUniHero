@@ -4,7 +4,6 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="horizontal" >
-<<<<<<< HEAD
     <Button android:id="@+id/c"
             android:background="@android:color/transparent"
             android:layout_width="50dp"
@@ -29,8 +28,5 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"/>
-=======
-
->>>>>>> origin/master
 
 </LinearLayout>

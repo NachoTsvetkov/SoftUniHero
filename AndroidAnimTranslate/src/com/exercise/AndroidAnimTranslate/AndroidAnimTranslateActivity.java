@@ -87,14 +87,6 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	animationLine2.setStartOffset(rnd2);
 		    	animationLine3.setStartOffset(rnd3);
 		    	
-<<<<<<< HEAD
-		    	final Random rnd = new Random();
-		    	int rnd1 = (rnd.nextInt(10000));
-		    	int rnd2 = (rnd.nextInt(10000));
-		    	int rnd3 = (rnd.nextInt(10000));
-=======
->>>>>>> origin/master
-		    	
 		    	
 		    	animationLine1.setAnimationListener(new Animation.AnimationListener(){
 		    	    @Override
