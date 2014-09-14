@@ -4,13 +4,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:onClick="@string/onStartGameClick"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
 
 
 
     <LinearLayout
-<<<<<<< HEAD
-	    android:layout_width="fill_parent"
+
+	    android:layout_width="200dp"
 	    android:layout_height="fill_parent"
 	    android:orientation="horizontal" >
 
@@ -61,6 +61,7 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:src="@drawable/ic_launcher" />
+
         <include
                 android:id="@+id/buttons_override"
                 android:layout_width="fill_parent"
@@ -69,79 +70,18 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="-200dp"/>
 
-	</LinearLayout>
-=======
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal" >
-
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
-            android:background="#FF4444" />
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-25dp"
-            android:src="@drawable/ic_launcher" />
-
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
-            android:background="#99CC00" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-25dp"
-            android:src="@drawable/ic_launcher" />
-
-        <View
-            android:id="@+id/imageView3"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
-            android:background="#FFBB33" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-25dp"
-            android:src="@drawable/ic_launcher" />
-
-        <View
-            android:id="@+id/imageView4"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
-            android:background="#33B5E5" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-25dp"
-            android:src="@drawable/ic_launcher" />
-
-        <LinearLayout
+    </LinearLayout>
+    <LinearLayout
             android:id="@+id/llMenu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1.15"
             android:orientation="vertical" >
-
-            <Button
+        <Button
                 android:id="@+id/btnStartGame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Start Game" />
-
-        </LinearLayout>
     </LinearLayout>
->>>>>>> origin/master
-    
+
 </LinearLayout>
