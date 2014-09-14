@@ -2,17 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-<<<<<<< HEAD
-    android:orientation="vertical" >
-
-	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:gravity="bottom"
-	    android:orientation="vertical" >
-	    
-	</LinearLayout>    
-=======
     android:orientation="horizontal" >
     
     
@@ -51,7 +40,6 @@
 		    android:layout_marginLeft="50dp"
 		    android:layout_height="match_parent"
 		    android:background="#33B5E5" />
->>>>>>> origin/master
 
 	</LinearLayout>
     
