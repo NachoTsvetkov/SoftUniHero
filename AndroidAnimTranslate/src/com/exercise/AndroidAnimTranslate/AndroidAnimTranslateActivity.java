@@ -16,17 +16,19 @@ import android.widget.RelativeLayout;
 public class AndroidAnimTranslateActivity extends Activity {
 	public static int counter = 0;
 	public static int iterations = 10;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        final Animation animationFalling = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine1 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine2 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine3 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine4 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final AndroidAnimTranslateActivity app = this;
-        
+
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.llMain);
         mainLayout.setOnClickListener(new Button.OnClickListener(){
 		    @Override
@@ -41,40 +43,38 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    public void onClick(View arg0) {
 		    	counter = 0;
 		    	
-		    	final ImageView fi = new ImageView(app);
-		    	fi.setImageResource(R.drawable.ic_launcher);
-		    	
-		    	final RelativeLayout relLayout1 = (RelativeLayout) findViewById(R.id.rlLine1);
-		    	RelativeLayout relLayout2 = (RelativeLayout) findViewById(R.id.rlLine2);
-		    	RelativeLayout relLayout3 = (RelativeLayout) findViewById(R.id.rlLine3);
-		    	RelativeLayout relLayout4 = (RelativeLayout) findViewById(R.id.rlLine4);
-		    	
-		    	final RelativeLayout.LayoutParams layoutParameters = new RelativeLayout.LayoutParams(
+		    	RelativeLayout.LayoutParams layoutParameters = new RelativeLayout.LayoutParams(
 	    			LayoutParams.WRAP_CONTENT,
 	    		    LayoutParams.WRAP_CONTENT
 		    	);
+		    	
 		    	layoutParameters.setMargins(0, -150, 0, 0);
 		    	layoutParameters.addRule(RelativeLayout.ALIGN_LEFT);
+		    	layoutParameters.addRule(RelativeLayout.ALIGN_LEFT);
 		    	
-		    	relLayout1.addView(fi, layoutParameters);
-		    	fi.startAnimation(animationLine1);
+		    	
+		    	final ImageView fi = new ImageView(app);
+		    	fi.setImageResource(R.drawable.ic_launcher);
+		    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.rlLine1);
+		    	rl.addView(fi, layoutParameters);
+		    	fi.startAnimation(animationFalling);
 		    	
 		    	final ImageView fi2 = new ImageView(app);
 		    	fi2.setImageResource(R.drawable.ic_launcher);
-		    	
-		    	relLayout2.addView(fi2, layoutParameters);
-		    	fi2.startAnimation(animationLine2);
+		    	RelativeLayout rl2 = (RelativeLayout) findViewById(R.id.rlLine2);
+		    	rl2.addView(fi2, layoutParameters);
+		    	fi2.startAnimation(animationLine1);
 		    	
 		    	final ImageView fi3 = new ImageView(app);
 		    	fi3.setImageResource(R.drawable.ic_launcher);
-		    	
-		    	relLayout3.addView(fi3, layoutParameters);
-		    	fi3.startAnimation(animationLine3);
+		    	RelativeLayout rl3 = (RelativeLayout) findViewById(R.id.rlLine3);
+		    	rl3.addView(fi3, layoutParameters);
+		    	fi3.startAnimation(animationLine1);
 		    	
 		    	final ImageView fi4 = new ImageView(app);
 		    	fi4.setImageResource(R.drawable.ic_launcher);
-		    	
-		    	relLayout4.addView(fi4, layoutParameters);
+		    	RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.rlLine2);
+		    	rl4.addView(fi4, layoutParameters);
 		    	fi4.startAnimation(animationLine4);
 		    	
 		    	final Random rnd = new Random();
@@ -88,8 +88,11 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	animationLine3.setStartOffset(rnd3);
 		    	animationLine4.setStartOffset(rnd4);
 		    	
+		    	animationFalling.setStartOffset(rnd1+3);
+		    	animationLine1.setStartOffset(rnd2+3);
+		    	animationLine2.setStartOffset(rnd3+3);
 		    	
-		    	animationLine1.setAnimationListener(new Animation.AnimationListener(){
+		    	animationFalling.setAnimationListener(new Animation.AnimationListener(){
 		    	    @Override
 		    	    public void onAnimationStart(Animation arg0) {
 		    	    }           
@@ -108,7 +111,7 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	});
 		    	
 		    	
-		    	animationLine2.setAnimationListener(new Animation.AnimationListener(){
+		    	animationLine1.setAnimationListener(new Animation.AnimationListener(){
 		    	    @Override
 		    	    public void onAnimationStart(Animation arg0) {
 		    	    }           
@@ -125,7 +128,7 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	    }
 		    	});
 		    	
-		    	animationLine3.setAnimationListener(new Animation.AnimationListener(){
+		    	animationLine2.setAnimationListener(new Animation.AnimationListener(){
 		    	    @Override
 		    	    public void onAnimationStart(Animation arg0) {
 		    	    }           
