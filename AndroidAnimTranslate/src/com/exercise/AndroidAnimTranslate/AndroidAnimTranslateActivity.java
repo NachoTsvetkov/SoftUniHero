@@ -15,9 +15,17 @@ public class AndroidAnimTranslateActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        Button btnStartGame = (Button)findViewById(R.id.btnStartGame);
         final ImageView floatingImage = (ImageView)findViewById(R.id.imageView1);
-        
         final Animation animationFalling = AnimationUtils.loadAnimation(this, R.anim.falling);
+        
+        btnStartGame.setOnClickListener(new Button.OnClickListener(){
+		    @Override
+		    public void onClick(View arg0) {
+		    // TODO Auto-generated method stub
+		    	floatingImage.startAnimation(animationFalling);
+		    }
+        });
         
         for (int i = 0; i < 10; i++) {
         	floatingImage.startAnimation(animationFalling);
