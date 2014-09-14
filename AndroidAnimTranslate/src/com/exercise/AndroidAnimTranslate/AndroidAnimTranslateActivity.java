@@ -82,9 +82,9 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	fi3.startAnimation(animationLine2);
 		    	
 		    	final Random rnd = new Random();
-		    	int rnd1 = (int)(rnd.nextInt(10000));
-		    	int rnd2 = (int)(rnd.nextInt(10000));
-		    	int rnd3 = (int)(rnd.nextInt(10000));
+		    	int rnd1 = (rnd.nextInt(10000));
+		    	int rnd2 = (rnd.nextInt(10000));
+		    	int rnd3 = (rnd.nextInt(10000));
 		    	
 		    	animationFalling.setStartOffset(rnd1+3);
 		    	animationLine1.setStartOffset(rnd2+3);
