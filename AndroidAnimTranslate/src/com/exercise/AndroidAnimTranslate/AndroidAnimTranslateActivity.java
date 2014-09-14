@@ -12,10 +12,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class AndroidAnimTranslateActivity extends Activity {
 	public static int counter = 0;
-	public static int iterations = 50;
+	public static int iterations = 200;
+	public static int score = 0;
+	public static String lblScoreOffset = "        ";
 	
     /** Called when the activity is first created. */
     @Override
@@ -44,6 +47,9 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    @Override
 		    public void onClick(View arg0) {
 		    	counter = 0;
+
+    	    	TextView tv = (TextView) findViewById(R.id.textView2);
+    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
 		    	
 		    	RelativeLayout.LayoutParams layoutParameters = setLayoutParams();
 		    	
@@ -98,6 +104,10 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	    @Override
 		    	    public void onAnimationEnd(Animation arg0) {
 		    	    	counter++;
+		    	    	
+		    	    	TextView tv = (TextView) findViewById(R.id.textView2);
+		    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
+		    	    	
 		    	    	if(counter < iterations) {
 					    	int rnd1 = (int)(rnd.nextFloat()*1000);
 					    	animationLine1.setStartOffset(rnd1+10);

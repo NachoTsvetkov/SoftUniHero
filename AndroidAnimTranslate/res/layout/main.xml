@@ -24,6 +24,7 @@
                 android:background="#FF4444" />
 
             <Button
+                android:id="@+id/Button00"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
@@ -115,9 +116,24 @@
 
             <Button
                 android:id="@+id/btnStartGame"
-                android:layout_width="match_parent"
+                android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:text="Start Game" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Score:"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" 0000"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
         </LinearLayout>
     </LinearLayout>
     
