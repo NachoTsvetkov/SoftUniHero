@@ -4,23 +4,24 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="horizontal" >
-    <Button 
+    <Button android:id="@+id/c"
             android:background="@android:color/transparent"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom"/>
+    
     <Button android:id="@+id/java"
-            android:background="@android:color/transparent"
+            android:text="J"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom"/>
     <Button android:id="@+id/html"
-            android:background="@android:color/transparent"
+            android:text="H5"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom"/>
     <Button android:id="@+id/php"
-            android:background="@android:color/transparent"
+            android:text="PHP"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom"/>
