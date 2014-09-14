@@ -15,17 +15,12 @@ public class AndroidAnimTranslateActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        Button buttonStartTranslate = (Button)findViewById(R.id.starttranslate);
-        final ImageView floatingImage = (ImageView)findViewById(R.id.floatingimage);
+        final ImageView floatingImage = (ImageView)findViewById(R.id.imageView1);
         
         final Animation animationFalling = AnimationUtils.loadAnimation(this, R.anim.falling);
         
-        buttonStartTranslate.setOnClickListener(new Button.OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				floatingImage.startAnimation(animationFalling);
-			}});
+        for (int i = 0; i < 10; i++) {
+        	floatingImage.startAnimation(animationFalling);
+		}
     }
 }
