@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF4444" />
+                android:background="#FFBB33" />
 
             <Button
                 android:layout_width="50dp"
@@ -68,7 +68,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF4444" />
+                android:background="#99CC00" />
 
             <Button
                 android:id="@+id/Button02"
@@ -92,7 +92,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF4444" />
+                android:background="#33B5E5" />
 
             <ImageView
                 android:id="@+id/imageView4"
