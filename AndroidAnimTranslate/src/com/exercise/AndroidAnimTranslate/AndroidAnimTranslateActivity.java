@@ -16,9 +16,11 @@ public class AndroidAnimTranslateActivity extends Activity {
         setContentView(R.layout.main);
         
         final ImageView floatingImage = (ImageView)findViewById(R.id.imageView1);
+        
         final Animation animationFalling = AnimationUtils.loadAnimation(this, R.anim.falling);
         
-		floatingImage.startAnimation(animationFalling);
-		
+        for (int i = 0; i < 10; i++) {
+        	floatingImage.startAnimation(animationFalling);
+		}
     }
 }
