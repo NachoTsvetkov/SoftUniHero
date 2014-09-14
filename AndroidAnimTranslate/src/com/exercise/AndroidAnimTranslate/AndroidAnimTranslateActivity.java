@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-
 public class AndroidAnimTranslateActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
@@ -34,14 +33,12 @@ public class AndroidAnimTranslateActivity extends Activity {
         
         
         Button btnStartGame = (Button)findViewById(R.id.btnStartGame);
-        final Button btnScore1 = (Button)findViewById(R.id.Button01);
-
         btnStartGame.setOnClickListener(new Button.OnClickListener(){
 		    @Override
 		    public void onClick(View arg0) {
 		    	final ImageView fi = new ImageView(app);
 		    	fi.setImageResource(R.drawable.ic_launcher);
-
+		    	
 		    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.rlLine1);
 		    	
 		    	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
@@ -53,7 +50,7 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	
 		    	rl.addView(fi, lp);
 		    	fi.startAnimation(animationFalling);
-
+		    	
 		    	final ImageView fi2 = new ImageView(app);
 		    	fi2.setImageResource(R.drawable.ic_launcher);
 		    	
@@ -138,10 +135,7 @@ public class AndroidAnimTranslateActivity extends Activity {
 				    	fi3.startAnimation(animationLine2);
 		    	    }
 		    	});
-                animationLine1.getDuration();
-
-
-		 }
+		    }
         });
     }
 }
