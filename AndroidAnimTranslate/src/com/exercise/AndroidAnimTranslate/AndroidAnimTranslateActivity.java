@@ -19,6 +19,7 @@ public class AndroidAnimTranslateActivity extends Activity {
 	public static int iterations = 200;
 	public static int score = 0;
 	public static String lblScoreOffset = "        ";
+	public static long[] startTime = new long[4];
 	
     /** Called when the activity is first created. */
     @Override
@@ -27,12 +28,11 @@ public class AndroidAnimTranslateActivity extends Activity {
         setContentView(R.layout.main);
 
         final Animation animationLine1 = AnimationUtils.loadAnimation(this, R.anim.falling);
+        animationLine1.setFillAfter(true);
         final Animation animationLine2 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine3 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final Animation animationLine4 = AnimationUtils.loadAnimation(this, R.anim.falling);
         final AndroidAnimTranslateActivity app = this;
-        
-        
 
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.llMain);
         mainLayout.setOnClickListener(new Button.OnClickListener(){
@@ -40,6 +40,8 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    public void onClick(View arg0) {
 		    }
         });
+        
+        
         
         
         Button btnStartGame = (Button)findViewById(R.id.btnStartGame);
@@ -54,16 +56,61 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	RelativeLayout.LayoutParams layoutParameters = setLayoutParams();
 		    	
 		    	final ImageView img1 = setImageView(animationLine1,
-						layoutParameters, R.id.rlLine1, R.drawable.ic_launcher);
+						layoutParameters, R.id.rlLine1, R.drawable.ic_launcher, 0);
 		    	
 		    	final ImageView img2 = setImageView(animationLine2,
-						layoutParameters, R.id.rlLine2, R.drawable.ic_launcher);
+						layoutParameters, R.id.rlLine2, R.drawable.ic_launcher, 1);
 		    	
 		    	final ImageView img3 = setImageView(animationLine3,
-						layoutParameters, R.id.rlLine3, R.drawable.ic_launcher);
+						layoutParameters, R.id.rlLine3, R.drawable.ic_launcher, 2);
 		    	
 		    	final ImageView img4 = setImageView(animationLine4,
-						layoutParameters, R.id.rlLine4, R.drawable.ic_launcher);
+						layoutParameters, R.id.rlLine4, R.drawable.ic_launcher, 3);
+		    	
+		    	Button btn00 = (Button)findViewById(R.id.Button00);
+		        btn00.setOnClickListener(new Button.OnClickListener(){
+		        	@Override
+		        	public void onClick(View arg0) {
+		        		if (System.currentTimeMillis() - startTime[0] > 2800 && System.currentTimeMillis() - startTime[0] < 3100) { //(animationLine1.getDuration() > 1000 || animationLine1.getDuration() < 5000){
+		        			counter++;
+		        			TextView tv = (TextView) findViewById(R.id.textView2);
+			    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
+		        		}
+		        	}
+		        });
+		        Button btn01 = (Button)findViewById(R.id.Button01);
+		        btn01.setOnClickListener(new Button.OnClickListener(){
+		        	@Override
+		        	public void onClick(View arg0) {
+		        		if (System.currentTimeMillis() - startTime[0] > 2800 && System.currentTimeMillis() - startTime[1] < 3100) { //(animationLine1.getDuration() > 1000 || animationLine1.getDuration() < 5000){
+		        			counter++;
+		        			TextView tv = (TextView) findViewById(R.id.textView2);
+			    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
+		        		}
+		        	}
+		        });
+		        Button btn02 = (Button)findViewById(R.id.Button02);
+		        btn02.setOnClickListener(new Button.OnClickListener(){
+		        	@Override
+		        	public void onClick(View arg0) {
+		        		if (System.currentTimeMillis() - startTime[2] > 2800 && System.currentTimeMillis() - startTime[2] < 3100) { //(animationLine1.getDuration() > 1000 || animationLine1.getDuration() < 5000){
+		        			counter++;
+		        			TextView tv = (TextView) findViewById(R.id.textView2);
+			    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
+		        		}
+		        	}
+		        });
+		        Button btn03 = (Button)findViewById(R.id.Button03);
+		        btn03.setOnClickListener(new Button.OnClickListener(){
+		        	@Override
+		        	public void onClick(View arg0) {
+		        		if (System.currentTimeMillis() - startTime[3] > 2800 && System.currentTimeMillis() - startTime[3] < 3100) { //(animationLine1.getDuration() > 1000 || animationLine1.getDuration() < 5000){
+		        			counter++;
+		        			TextView tv = (TextView) findViewById(R.id.textView2);
+			    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
+		        		}
+		        	}
+		        });
 		    	
 		    	final Random rnd = new Random();
 		    	int rnd1 = (int)(rnd.nextFloat()*1000);
@@ -77,13 +124,13 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	animationLine4.setStartOffset(rnd4+1);
 		    	
 		    	Animation.AnimationListener listener1 = getAnimationListener(
-						animationLine1, img1, rnd, animationLine1);
+						animationLine1, img1, rnd, animationLine1, 0);
 		    	Animation.AnimationListener listener2 = getAnimationListener(
-						animationLine2, img2, rnd, animationLine2);
+						animationLine2, img2, rnd, animationLine2, 1);
 		    	Animation.AnimationListener listener3 = getAnimationListener(
-						animationLine3, img3, rnd, animationLine3);
+						animationLine3, img3, rnd, animationLine3, 2);
 		    	Animation.AnimationListener listener4 = getAnimationListener(
-						animationLine4, img4, rnd, animationLine4);
+						animationLine4, img4, rnd, animationLine4, 3);
 		    	
 		    	animationLine1.setAnimationListener(listener1);
 		    	animationLine2.setAnimationListener(listener2);
@@ -93,25 +140,25 @@ public class AndroidAnimTranslateActivity extends Activity {
 
 			private Animation.AnimationListener getAnimationListener(
 					final Animation animationLine1, final ImageView firstImage,
-					final Random rnd, final Animation anim) {
+					final Random rnd, final Animation anim, final int startTimeIndex) {
 				Animation.AnimationListener listener = new Animation.AnimationListener(){
 		    	    @Override
 		    	    public void onAnimationStart(Animation arg0) {
+		    	    	startTime[startTimeIndex] = System.currentTimeMillis() + anim.getStartOffset();
 		    	    }           
 		    	    @Override
 		    	    public void onAnimationRepeat(Animation arg0) {
 		    	    }           
 		    	    @Override
 		    	    public void onAnimationEnd(Animation arg0) {
-		    	    	counter++;
-		    	    	
-		    	    	TextView tv = (TextView) findViewById(R.id.textView2);
-		    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
+//		    	    	counter++;
+//		    	    	
+//		    	    	TextView tv = (TextView) findViewById(R.id.textView2);
+//		    	    	tv.setText(lblScoreOffset + Integer.toString(counter));
 		    	    	
 		    	    	if(counter < iterations) {
-					    	int rnd1 = (int)(rnd.nextFloat()*1000);
-					    	animationLine1.setStartOffset(rnd1+10);
 					    	firstImage.startAnimation(anim);
+					    	startTime[startTimeIndex] = System.currentTimeMillis() + anim.getStartOffset();
 		    	    	}
 		    	    }
 		    	};
@@ -121,12 +168,13 @@ public class AndroidAnimTranslateActivity extends Activity {
 
 			private ImageView setImageView(final Animation animationFalling,
 					RelativeLayout.LayoutParams layoutParameters, int rlLine,
-					int icon) {
+					int icon, int startTimeIndex) {
 				final ImageView vi = new ImageView(app);
 		    	vi.setImageResource(icon);
 		    	RelativeLayout rl = (RelativeLayout) findViewById(rlLine);
-		    	rl.addView(vi, layoutParameters);
+		    	rl.addView(vi,1,layoutParameters);
 		    	vi.startAnimation(animationFalling);
+		    	startTime[startTimeIndex] = System.currentTimeMillis();
 				return vi;
 			}
 
