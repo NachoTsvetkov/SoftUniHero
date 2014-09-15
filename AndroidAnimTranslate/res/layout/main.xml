@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF4444" />
+                android:background="#6addee" />
 
             <Button
                 android:id="@+id/Button00"
@@ -47,7 +47,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF8C00" />
+                android:background="#6aee71" />
 
             <Button
                 android:id="@+id/Button01"
@@ -72,7 +72,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF4444" />
+                android:background="#ee746a" />
 
             <Button
                 android:id="@+id/Button02"
@@ -97,7 +97,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF4444" />
+                android:background="#e26aee" />
 
             <Button
                 android:id="@+id/Button03"
