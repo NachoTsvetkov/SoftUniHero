@@ -26,12 +26,14 @@
             <Button
                 android:id="@+id/Button00"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:shadowDx="0"
                 android:shadowDy="0"
-                android:shadowRadius="5" />
+                android:shadowRadius="5" 
+                android:angle="90"
+                android:background="@drawable/btn01"/>
 
         </RelativeLayout>
 
@@ -45,17 +47,18 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="#FF4444" />
+                android:background="#FF8C00" />
 
             <Button
                 android:id="@+id/Button01"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:shadowDx="0"
                 android:shadowDy="0"
-                android:shadowRadius="5" />
+                android:shadowRadius="5" 
+                android:background="@drawable/btn02"/>
 
         </RelativeLayout>
 
@@ -74,12 +77,13 @@
             <Button
                 android:id="@+id/Button02"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:shadowDx="0"
                 android:shadowDy="0"
-                android:shadowRadius="5" />
+                android:shadowRadius="5" 
+                android:background="@drawable/btn03"/>
 
         </RelativeLayout>
 
@@ -98,12 +102,13 @@
             <Button
                 android:id="@+id/Button03"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:shadowDx="0"
                 android:shadowDy="0"
-                android:shadowRadius="5" />
+                android:shadowRadius="5" 
+                android:background="@drawable/btn04"/>
 
         </RelativeLayout>
 
@@ -112,8 +117,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1.15"
-            android:orientation="vertical" >
-
+            android:orientation="vertical"
+            android:background="@drawable/rightimage" >
+			
             <Button
                 android:id="@+id/btnStartGame"
                 android:layout_width="128dp"

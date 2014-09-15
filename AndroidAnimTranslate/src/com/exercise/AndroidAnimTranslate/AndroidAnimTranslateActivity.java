@@ -56,16 +56,16 @@ public class AndroidAnimTranslateActivity extends Activity {
 		    	RelativeLayout.LayoutParams layoutParameters = setLayoutParams();
 		    	
 		    	final ImageView img1 = setImageView(animationLine1,
-						layoutParameters, R.id.rlLine1, R.drawable.ic_launcher, 0);
+						layoutParameters, R.id.rlLine1, R.drawable.beer1, 0);
 		    	
 		    	final ImageView img2 = setImageView(animationLine2,
-						layoutParameters, R.id.rlLine2, R.drawable.ic_launcher, 1);
+						layoutParameters, R.id.rlLine2, R.drawable.paci1, 1);
 		    	
 		    	final ImageView img3 = setImageView(animationLine3,
-						layoutParameters, R.id.rlLine3, R.drawable.ic_launcher, 2);
+						layoutParameters, R.id.rlLine3, R.drawable.beer2, 2);
 		    	
 		    	final ImageView img4 = setImageView(animationLine4,
-						layoutParameters, R.id.rlLine4, R.drawable.ic_launcher, 3);
+						layoutParameters, R.id.rlLine4, R.drawable.paci2, 3);
 		    	
 		    	Button btn00 = (Button)findViewById(R.id.Button00);
 		        btn00.setOnClickListener(new Button.OnClickListener(){
